@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TPDGB27');</script>
+	<!-- End Google Tag Manager -->
+
+	<title>Impact page</title>
+</head>
+<body>
+
+<div>
+	<input type="button" name="submint" onclick="javascript:httpbin();" value="Request"></input>
+</div>
+
+
+
+</body>
+<script type="text/javascript">
+	//1, 写一个发送GET 请求
+	function httpbin() {
+		var urls ="http://httpbin.org/get";
+		httpGetAsync(urls,function(result) {
+			console.log("=============");
+			console.log(result);
+		});
+	}
+
+	//2,发送gtm
+	function sendGTM(data) {
+		
+	}
+
+	getInfo();
+	//3,
+	function getInfo() {
+		var referrer =encodeURI(document.referrer);
+		var userAagent =navigator.userAgent;
+		var cmp = "Hunter";
+		var urls ="http://c.fqtag.com/tag/implement-r.js?org=BB6DvPmytpFndg8atDcN&p="
+		 + referrer + "&a=" + userAagent + "&cmp=" + cmp + "&fmt=banner&rt=display&sl=1&fq=1";
+		var script = "<script src=\"" + urls +"\"<\/script>";
+		document.writeln(script);
+
+
+	}
+
+
+	//
+
+
+
+	function httpGet(theUrl)
+	{
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.open( "GET", theUrl, false ); 
+	    xmlHttp.send( null );
+	    return xmlHttp.responseText;
+	}
+
+	function httpGetAsync(theUrl, callback)
+	{
+	    var xmlHttp = new XMLHttpRequest();
+	    xmlHttp.onreadystatechange = function() { 
+	        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+	            callback(xmlHttp.responseText);
+	    }
+	    xmlHttp.open("GET", theUrl, true);
+	    xmlHttp.send(null);
+	}
+</script>
+</html>
