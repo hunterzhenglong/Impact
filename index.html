@@ -12,35 +12,60 @@
 	})(window,document,'script','dataLayer','GTM-TPDGB27');</script>
 	<!-- End Google Tag Manager -->
 
+	
+	<style type="text/css">
+		.content{
+			text-align:center;
+		}
+		.button{
+			width: 120px;
+			height: 60px;
+		}
+		.ads{
+			width: 1200px;
+			height: 120px;
+			margin:0 auto;
+		}
+	</style>
+
 	<title>Impact page</title>
 </head>
 <body>
 
-<div>
-	<input type="button" name="submint" onclick="javascript:httpbin();" value="Request"></input>
+<div class="content">
+	<input class="button" type="button" name="submint" onclick="javascript:httpbin();" value="Request"></input>
+	<p>
+		<img class="ads" src="http://h.hiphotos.baidu.com/image/pic/item/b3b7d0a20cf431ad7427dfad4136acaf2fdd98a9.jpg">
+	</p>
 </div>
 
 
 
 </body>
 <script type="text/javascript">
-	//1, 写一个发送GET 请求
+
+	loadFqtag();
+
+	//1, http get
 	function httpbin() {
 		var urls ="http://httpbin.org/get";
 		httpGetAsync(urls,function(result) {
-			console.log("=============");
-			console.log(result);
+			if (result) {
+				sendGTM(result);	
+			}
+			
 		});
 	}
 
-	//2,发送gtm
+	//2,snd gtm dataLayer
 	function sendGTM(data) {
+		if (data) {
+			dataLayer.push(data);
+		}
 		
 	}
-
-	getInfo();
-	//3,
-	function getInfo() {
+	//3,loadFqtag
+	function loadFqtag() {
 		var referrer =encodeURI(document.referrer);
 		var userAagent =navigator.userAgent;
 		var cmp = "Hunter";
@@ -52,18 +77,6 @@
 
 	}
 
-
-	//
-
-
-
-	function httpGet(theUrl)
-	{
-	    var xmlHttp = new XMLHttpRequest();
-	    xmlHttp.open( "GET", theUrl, false ); 
-	    xmlHttp.send( null );
-	    return xmlHttp.responseText;
-	}
 
 	function httpGetAsync(theUrl, callback)
 	{
