@@ -48,7 +48,7 @@
 
 	//1, http get
 	function httpbin() {
-		var urls ="http://httpbin.org/get";
+		var urls ="https://httpbin.org/get";
 		httpGetAsync(urls,function(result) {
 			if (result) {
 				sendGTM(result);	
